@@ -1,0 +1,100 @@
+const express = require('express');
+const router = express.Router();
+const pageController = require('./controller/pageController');
+const adminUserController = require('./controller/adminUserController');
+const adminCategoriesController = require('./controller/adminCategoriesController');
+const adminPostsController = require('./controller/adminPostsController');
+//返回各种动态页面
+router.get('/',(req,res)=>{
+    pageController.getIndex(req,res)
+});
+router.get('/index',(req,res)=>{
+    pageController.getIndex(req,res)
+});
+router.get('/admin',(req,res)=>{
+    pageController.getAdminIndex(req,res)
+});
+router.get('/admin/index',(req,res)=>{
+    pageController.getAdminIndex(req,res)
+});
+router.get('/list',(req,res)=>{
+    pageController.getList(req,res)
+});
+router.get('/detail',(req,res)=>{
+    pageController.getDetail(req,res)
+});
+router.get('/admin/categories',(req,res)=>{
+    pageController.getCategories(req,res)
+});
+router.get('/admin/comments',(req,res)=>{
+    pageController.getComments(req,res)
+});
+router.get('/admin/login',(req,res)=>{
+    pageController.getLogin(req,res)
+});
+router.get('/admin/password-reset',(req,res)=>{
+    pageController.getPasswordReset(req,res)
+});
+router.get('/admin/post-add',(req,res)=>{
+    pageController.getPostAdd(req,res)
+});
+router.get('/admin/posts',(req,res)=>{
+    pageController.getPosts(req,res)
+});
+router.get('/admin/profile',(req,res)=>{
+    pageController.getProfile(req,res)
+});
+router.get('/admin/settings',(req,res)=>{
+    pageController.getSettings(req,res)
+});
+router.get('/admin/slides',(req,res)=>{
+    pageController.getSlides(req,res)
+});
+router.get('/admin/users',(req,res)=>{
+    pageController.getUsers(req,res)
+});
+router.post('/admin_do_login',(req,res)=>{
+    adminUserController.adminDoLogin(req,res)
+});
+router.post('/admin_remove_user',(req,res)=>{
+    adminUserController.adminRemoveUser(req,res)
+});
+router.get('/admin_get_user_by_id',(req,res)=>{
+    adminUserController.adminGetUserById(req,res)
+});
+router.get('/admin_get_head_and_name',(req,res)=>{
+    adminUserController.adminGetHeadAndName(req,res)
+});
+router.post('/admin_update_user',(req,res)=>{
+    adminUserController.adminUpdateUser(req,res)
+});
+router.post('/admin_add_new_user',(req,res)=>{
+    adminUserController.adminAddNewUser(req,res)
+});
+router.post('/get_categories_by_id',(req,res)=>{
+    adminCategoriesController.getCategoriesById(req,res)
+});
+router.post('/admin_remover_category_by_id',(req,res)=>{
+    adminCategoriesController.adminRemoverCategoryById(req,res)
+});
+router.post('/admin_add_new_category',(req,res)=>{
+    adminCategoriesController.adminAddNewCategory(req,res)
+});
+router.post('/admin_update_category_by_id',(req,res)=>{
+    adminCategoriesController.adminUpdateCategoryById(req,res)
+});
+router.post('/getPostsByPage',(req,res)=>{
+    adminPostsController.getPostsByPage(req,res)
+});
+router.get('/getAllCategories',(req,res)=>{
+    adminPostsController.getAllCategories(req,res)
+});
+router.post('/getPostsByFilter',(req,res)=>{
+    adminPostsController.getPostsByFilter(req,res)
+});
+router.post('/uploadImage',(req,res)=>{
+    adminPostsController.uploadImage(req,res)
+});
+//暴露router
+module.exports = router;
+
