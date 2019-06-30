@@ -95,6 +95,7 @@ router.post('/getPostsByFilter',(req,res)=>{
 router.post('/uploadImage',(req,res)=>{
     adminPostsController.uploadImage(req,res)
 });
+router.post('/addpost',(req,res)=>{
 //暴露router
 module.exports = router;
 
